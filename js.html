@@ -6,6 +6,16 @@
     <title>JavaScript</title>
 </head>
 <body>
-    <script src="index.js" type="text/javascript"></script>
+    <button id="click-me">Click Me</button>
+     <script>
+         window.addEventListener("DOMContentLoaded", function(e) {
+             console.log("The page is loaded.");
+
+             let btn = document.querySelector("#click-me");
+             btn.addEventListener("click", function(e) {
+                 console.log("The button is clicked.")
+             })
+         })
+     </script>
 </body>
 </html>
