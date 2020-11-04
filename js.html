@@ -7,12 +7,22 @@
 </head>
 <body>
     <script>
-        let name = "Satish";
-        {
-            let name = "Rahul"
-            console.log(name);
+        function greet(name) {
+            if(name === "Craig") {
+                console.log("Hi Craig!");
+            }
+            else if (name === "Tyler") {
+                console.log("Tyler, is that you?");
+            }
+            else {
+                console.log("Wait, where's Craig?");
+            }
         }
-        console.log(name);
+
+        greet("Craig");
+        greet("Tyler");
+        greet("Jacob");
+         
         
     </script>
 </body>
