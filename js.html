@@ -7,16 +7,11 @@
 </head>
 <body>
     <script>
-        let person = {
-            firstName : "Satish",
-            lastName : "Gupta",
-            twitter : "satishkrgupta",
-            greet : function() {
-               console.log("My name is " +this.firstName);
-            }
-        };
+        let days = ["Mon", "Tue", "Wed"];
 
-        console.log(person);        
+        days.forEach(function(day, index) {
+             console.log(`day: ${day}, index: ${index}`);
+        })  
         
     </script>
 </body>
