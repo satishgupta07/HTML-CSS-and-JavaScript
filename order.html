@@ -7,6 +7,16 @@
     <title>Order | Bethany's Pie Shop</title>
     <link rel="stylesheet" href="site.css" type="text/css" />
     <style>
+      @media only screen and (min-width: 768px) {
+        article {
+          width: 350px;
+        }
+      }
+
+      .pie {
+        margin-bottom: 20px;
+      }
+      
       .input-group {
         margin-bottom: 20px;
       }
@@ -56,6 +66,15 @@
       <article>
         <!-- ADD CONTENT HERE -->
         <h1>Order</h1>
+
+        <div class="pie">
+          <img src="" />
+          <div class="columns">
+            <div class="title"></div>
+            <div class="price"></div>
+          </div>
+          <p class="desc"></p>
+        </div>
 
         <form action="http://localhost:7071/api/post" method="POST">
           <input type="hidden" id="pie-order" name="pie-order">
@@ -166,5 +185,31 @@
         </ul>
       </nav>
     </footer>
+    <script type="text/javascript">
+
+      window.addEventListener("DOMContentLoaded", function(e) {
+
+        const order = localStorage.getItem("order");
+        const pieOrder = JSON.parse(order);
+
+        if (order) {
+          const pie = document.querySelector(".pie");
+          const title = pie.querySelector(".title");
+          const price = pie.querySelector(".price");
+          const desc = pie.querySelector(".desc");
+          const orderInput = document.querySelector("#pie-order");
+
+          title.innerText = pieOrder.title;
+          price.innerText = pieOrder.price;
+          desc.innerText = pieOrder.desc;
+
+          orderInput.value = order;
+
+          const img = pie.querySelector("img");
+          img.setAttribute("src", `images/${pieOrder.id}.png`);
+          img.setAttribute("alt", pieOrder.title);
+        }
+      });
+    </script>
   </body>
 </html>
